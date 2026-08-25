@@ -1,5 +1,112 @@
 const STORAGE_KEY = "private-flashcards-v1";
 const cardTypes = new Set(["definition", "understanding", "comparison", "scenario", "calculation"]);
+const NETWORKING_PDF_MIGRATION = "networkingPdfCardsV1";
+const NETWORKING_PDF_SOURCE = "anki_networking_cards.pdf";
+const NETWORKING_PDF_CARDS = [
+  ["Jakie wartości może przyjmować bit?", "0 albo 1", "definition"],
+  ["Ile bitów ma 1 bajt?", "8 bitów", "definition"],
+  ["Co oznacza ASCII?", "American Standard Code for Information Interchange", "definition"],
+  ["Jak w notatkach reprezentowany jest pojedynczy znak ASCII?", "Za pomocą 8 bitów", "definition"],
+  ["Jak przesyłane są electrical signals?", "Jako impulsy elektryczne przez przewód miedziany", "understanding"],
+  ["Jak przesyłane są optical signals?", "Jako impulsy światła przez medium optyczne", "understanding"],
+  ["Jak przesyłane są wireless signals?", "Za pomocą fal radiowych lub mikrofal przez powietrze", "understanding"],
+  ["Co to bandwidth?", "Pojemność medium określająca, ile danych może zostać przesłanych w określonym czasie", "definition"],
+  ["Co to throughput?", "Rzeczywista ilość danych przesłanych i odebranych przez połączenie", "definition"],
+  ["Co to latency?", "Czas potrzebny danym na przebycie drogi z jednego punktu do drugiego, uwzględniając opóźnienia", "definition"],
+  ["Bandwidth vs throughput?", "Bandwidth = możliwości/pojemność medium. Throughput = rzeczywiście osiągnięty transfer", "comparison"],
+  ["Co oznacza Kbps?", "Tysiące bitów na sekundę - 10^3 bps", "definition"],
+  ["Co oznacza Mbps?", "Miliony bitów na sekundę - 10^6 bps", "definition"],
+  ["Co oznacza Gbps?", "Miliardy bitów na sekundę - 10^9 bps", "definition"],
+  ["Co oznacza Tbps?", "Biliony bitów na sekundę - 10^12 bps", "definition"],
+  ["Co to host?", "Urządzenie podłączone do sieci, które bezpośrednio uczestniczy w komunikacji", "definition"],
+  ["Co robi client?", "Żąda danych lub usług", "definition"],
+  ["Co robi server?", "Dostarcza dane lub usługi klientowi", "definition"],
+  ["Co wyróżnia P2P?", "Komputer może jednocześnie pełnić rolę klienta i serwera", "understanding"],
+  ["Podaj przykłady end devices.", "Desktop, laptop, printer, IP phone, tablet", "definition"],
+  ["Podaj przykłady intermediary devices.", "Wireless router, LAN switch, router, multilayer switch", "definition"],
+  ["Co to ISP?", "Internet Service Provider - zapewnia połączenie między siecią domową a Internetem", "definition"],
+  ["Z jakiego medium korzysta DSL?", "Z linii telefonicznej", "definition"],
+  ["Z jakiego medium korzysta Cable Internet?", "Z kabla koncentrycznego używanego także przez telewizję kablową", "definition"],
+  ["Co robi cable modem?", "Oddziela sygnał internetowy od innych sygnałów przesyłanych tym samym kablem", "understanding"],
+  ["Co oznacza GPS?", "Global Positioning System", "definition"],
+  ["Z czego korzysta GPS do określania lokalizacji?", "Z satelitów", "definition"],
+  ["Co to hotspot?", "Obszar, w którym dostępne jest Wi-Fi", "definition"],
+  ["Jakie są główne cechy Bluetooth?", "Low-power, short-range wireless technology", "definition"],
+  ["Jakie pasmo Bluetooth wskazują notatki?", "2.4 GHz", "definition"],
+  ["Co oznacza NFC?", "Near Field Communication", "definition"],
+  ["Na jaką odległość działa NFC według notatek?", "Zwykle mniej niż kilka centymetrów", "definition"],
+  ["Co oznacza SSID?", "Service Set Identifier", "definition"],
+  ["Czym jest SSID?", "Nazwą sieci Wi-Fi odróżniającą ją od innych sieci", "definition"],
+  ["Co to passphrase?", "Hasło używane do uzyskania dostępu do sieci Wi-Fi", "definition"],
+  ["Co to tethering?", "Udostępnianie połączenia internetowego jednego urządzenia innemu", "definition"],
+  ["Co oznacza WLAN?", "Wireless Local Area Network", "definition"],
+  ["Co oznacza LAN?", "Local Area Network", "definition"],
+  ["Co oznacza WAN?", "Wide Area Network", "definition"],
+  ["Co to Ethernet?", "Standard transmisji danych w przewodowej sieci lokalnej", "definition"],
+  ["Jakie dwie częstotliwości Wi-Fi wskazują notatki jako najczęstsze w domu?", "2.4 GHz i 5 GHz", "definition"],
+  ["Czym zajmuje się Wi-Fi Alliance?", "Testuje/certyfikuje interoperacyjność urządzeń WLAN różnych producentów", "understanding"],
+  ["Co oznacza AP?", "Access Point - punkt dostępowy Wi-Fi", "definition"],
+  ["Co to wireless channel?", "Wybrana część pasma częstotliwości radiowych używana przez AP/router", "definition"],
+  ["Ile bitów ma IPv4?", "32 bity", "definition"],
+  ["Na ile oktetów dzieli się IPv4?", "4 oktety po 8 bitów", "definition"],
+  ["Jakie wartości mają kolejne bity oktetu?", "128, 64, 32, 16, 8, 4, 2, 1", "calculation"],
+  ["Co określa subnet mask?", "Która część adresu IP oznacza sieć, a która hosta/urządzenie", "definition"],
+  ["Jaka maska odpowiada /24?", "255.255.255.0", "calculation"],
+  ["Ile bitów sieci oznacza /24?", "24", "calculation"],
+  ["Ile bitów hosta pozostawia /24?", "8", "calculation"],
+  ["Jaka maska odpowiada /27?", "255.255.255.224", "calculation"],
+  ["Ile bitów hosta pozostawia /27?", "5", "calculation"],
+  ["Jaki block size daje 255.255.255.224?", "32", "calculation"],
+  ["Jak obliczyć block size dla ostatniego oktetu maski?", "256 - wartość oktetu maski", "calculation"],
+  ["Co jest pierwszym adresem każdego bloku?", "Network address", "definition"],
+  ["Co jest ostatnim adresem każdego bloku?", "Broadcast address", "definition"],
+  ["Gdzie znajdują się usable host addresses?", "Pomiędzy network address a broadcast address", "understanding"],
+  ["Dla bloku 128-159 jaki jest network address?", ".128", "calculation"],
+  ["Dla bloku 128-159 jaki jest broadcast address?", ".159", "calculation"],
+  ["Dla bloku 128-159 jaki jest zakres hostów?", ".129-.158", "calculation"],
+  ["Co to default gateway?", "Punkt wyjścia z lokalnej sieci do innych sieci; najczęściej router", "definition"],
+  ["Co robi DNS server?", "Tłumaczy nazwy domen na adresy IP", "definition"],
+  ["Jakie 6 cech communication protocols wymieniają notatki?", "Message format, message size, timing, encoding, encapsulation, message pattern", "definition"],
+  ["Co określa message format?", "Strukturę/format wiadomości", "definition"],
+  ["Co określa message size?", "Reguły dotyczące wielkości przesyłanych części danych", "definition"],
+  ["Co może się stać z długą wiadomością?", "Może zostać podzielona na mniejsze części", "understanding"],
+  ["Co określa timing?", "Kiedy bity są transmitowane i kiedy host może wysyłać dane", "definition"],
+  ["Co to encoding?", "Zamiana bitów na sygnały odpowiednie dla danego medium", "definition"],
+  ["Co to decoding?", "Zamiana odebranego sygnału z powrotem na bity", "definition"],
+  ["Co to encapsulation?", "Dodawanie do wiadomości informacji, np. nagłówka z adresowaniem source i destination", "definition"],
+  ["Co może określać message pattern?", "Np. konieczność otrzymania acknowledgement przed wysłaniem kolejnej wiadomości", "understanding"],
+  ["Jakie informacje DHCP może przekazać urządzeniu?", "IP, informacje o sieci, default gateway i adres DNS server", "definition"],
+  ["Jakie są 4 warstwy TCP/IP?", "Application, Transport, Internet/Network, Network Access", "definition"],
+  ["Przykład protokołu Application w TCP/IP?", "HTTP", "definition"],
+  ["Przykład protokołu Transport?", "TCP", "definition"],
+  ["Przykład protokołu Internet/Network?", "IP", "definition"],
+  ["Przykład technologii Network Access?", "Ethernet", "definition"],
+  ["Ile warstw ma OSI?", "7", "definition"],
+  ["Wymień OSI od 7 do 1.", "Application, Presentation, Session, Transport, Network, Data Link, Physical", "definition"],
+  ["Która warstwa OSI odpowiada za frames?", "Layer 2 - Data Link", "definition"],
+  ["Która warstwa OSI odpowiada za fizyczną transmisję bitów?", "Layer 1 - Physical", "definition"],
+  ["Która warstwa OSI odpowiada za segmentowanie, transfer i ponowne składanie danych?", "Layer 4 - Transport", "definition"],
+  ["Co oznacza NIC?", "Network Interface Card", "definition"],
+  ["Jaki unikalny adres ma każdy NIC?", "MAC address - Media Access Control address", "definition"],
+  ["W co encapsulated jest wiadomość przed wysłaniem przez Ethernet?", "W frame", "definition"],
+  ["Do czego służy Preamble?", "Do synchronizacji przed ramką", "definition"],
+  ["Co oznacza SFD?", "Start Frame Delimiter", "definition"],
+  ["Co robi SFD?", "Oznacza początek ramki", "definition"],
+  ["Co zawiera Destination MAC?", "MAC address urządzenia odbierającego", "definition"],
+  ["Co zawiera Source MAC?", "MAC address urządzenia wysyłającego", "definition"],
+  ["Co zawiera Data w Ethernet frame?", "Payload", "definition"],
+  ["Co oznacza FCS?", "Frame Check Sequence", "definition"],
+  ["Do czego służy FCS?", "Do wykrywania błędów", "definition"],
+  ["Co robi switch, gdy zna destination MAC?", "Wysyła ramkę przez odpowiedni port", "scenario"],
+  ["Co robi switch, gdy NIE zna destination MAC?", "Flooduje ramkę przez wszystkie porty poza portem wejściowym", "scenario"],
+  ["OSI Layer 7 - Application", "Program korzysta z sieci. Prosty przykład: otwierasz stronę w przeglądarce.", "understanding"],
+  ["OSI Layer 6 - Presentation", "Ustala format danych, może je szyfrować lub kompresować. Prosty przykład: tekst jest kodowany, HTTPS szyfruje dane.", "understanding"],
+  ["OSI Layer 5 - Session", "Pilnuje trwania połączenia między aplikacjami. Prosty przykład: utrzymuje „rozmowę” między tobą a serwerem.", "understanding"],
+  ["OSI Layer 4 - Transport", "Dzieli dane na części i pilnuje dostarczenia. Prosty przykład: TCP sprawdza, czy wszystko dotarło.", "understanding"],
+  ["OSI Layer 3 - Network", "Wybiera drogę między sieciami. Prosty przykład: IP i routery kierują pakiet do właściwego miejsca.", "understanding"],
+  ["OSI Layer 2 - Data Link", "Dostarcza dane w obrębie lokalnej sieci. Prosty przykład: Ethernet/Wi-Fi używa adresów MAC.", "understanding"],
+  ["OSI Layer 1 - Physical", "Faktycznie przesyła bity. Prosty przykład: sygnał elektryczny, światło w światłowodzie albo fale radiowe.", "understanding"],
+];
 
 const state = {
   view: "today",
@@ -31,7 +138,11 @@ function fingerprint(front, back) {
 
 function loadData() {
   const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) return JSON.parse(stored);
+  if (stored) {
+    const data = JSON.parse(stored);
+    if (migrateData(data)) localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return data;
+  }
   const data = {
     decks: [],
     cards: [],
@@ -39,6 +150,8 @@ function loadData() {
     settings: { dailyNewLimit: 10, dailyReviewLimit: 100, theme: "system" },
   };
   seed(data);
+  migrateData(data);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   return data;
 }
 
@@ -60,6 +173,28 @@ function seed(data) {
   ].forEach(([front, back, type]) => {
     data.cards.push(makeCard({ deckId, front, back, type }));
   });
+}
+
+function migrateData(data) {
+  data.decks ||= [];
+  data.cards ||= [];
+  data.reviewLogs ||= [];
+  data.settings ||= {};
+  if (data.settings[NETWORKING_PDF_MIGRATION]) return false;
+  let deck = data.decks.find((item) => item.name === "Networking Basics");
+  if (!deck) {
+    deck = { id: uid("deck"), name: "Networking Basics", createdAt: nowIso() };
+    data.decks.push(deck);
+  }
+  const existing = new Set(data.cards.map((card) => card.fingerprint || fingerprint(card.front, card.back)));
+  NETWORKING_PDF_CARDS.forEach(([front, back, type]) => {
+    const fp = fingerprint(front, back);
+    if (existing.has(fp)) return;
+    data.cards.push(makeCard({ deckId: deck.id, front, back, type, source: NETWORKING_PDF_SOURCE }));
+    existing.add(fp);
+  });
+  data.settings[NETWORKING_PDF_MIGRATION] = true;
+  return true;
 }
 
 function makeCard({ deckId, front, back, type, source }) {
