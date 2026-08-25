@@ -1,4 +1,6 @@
 const STORAGE_KEY = "private-flashcards-v1";
+const cardTypes = new Set(["definition", "understanding", "comparison", "scenario", "calculation"]);
+
 const state = {
   view: "today",
   selectedDeckId: null,
@@ -10,8 +12,6 @@ const state = {
   message: "",
   data: loadData(),
 };
-
-const cardTypes = new Set(["definition", "understanding", "comparison", "scenario", "calculation"]);
 
 function uid(prefix) {
   return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
