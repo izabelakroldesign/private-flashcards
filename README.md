@@ -75,3 +75,10 @@ Unknown optional fields are ignored.
 4. Open the GitHub Pages app.
 5. Import the JSON file.
 6. Study on desktop or iPhone.
+
+## Built-In Decks
+
+The app ships with built-in study data loaded once into browser storage:
+
+- `Networking Basics`
+- `IP, DHCP, NAT, ARP i routing`

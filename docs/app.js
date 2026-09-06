@@ -1,5 +1,11 @@
 const STORAGE_KEY = "private-flashcards-v1";
 const cardTypes = new Set(["definition", "understanding", "comparison", "scenario", "calculation"]);
+const BUILT_IN_IMPORTS = [
+  {
+    migrationKey: "ipArpRoutingPdfCardsV1",
+    url: "./data/ip_arp_routing_cards.json",
+  },
+];
 const NETWORKING_PDF_MIGRATION = "networkingPdfCardsV1";
 const NETWORKING_PDF_SOURCE = "anki_networking_cards.pdf";
 const NETWORKING_PDF_CARDS = [
@@ -716,3 +722,24 @@ function openImport(deckId) {
 }
 
 render();
+applyBuiltInImports();
+
+async function applyBuiltInImports() {
+  let changed = false;
+  for (const item of BUILT_IN_IMPORTS) {
+    if (state.data.settings[item.migrationKey]) continue;
+    try {
+      const response = await fetch(item.url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Could not load ${item.url}`);
+      importPayload(validateImport(await response.json()));
+      state.data.settings[item.migrationKey] = true;
+      changed = true;
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+  if (changed) {
+    saveData();
+    render();
+  }
+}

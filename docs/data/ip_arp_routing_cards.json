@@ -1,0 +1,841 @@
+{
+  "deck": {
+    "name": "IP, DHCP, NAT, ARP i routing"
+  },
+  "cards": [
+    {
+      "front": "Dlaczego adres zrodlowy IP jest adresem unicast?",
+      "back": "Bo zawsze wskazuje jeden konkretny interfejs nadawcy.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie typy moze miec adres docelowy IP?",
+      "back": "Unicast, broadcast albo multicast.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza unicast?",
+      "back": "Komunikacje jeden do jednego.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza broadcast w IPv4?",
+      "back": "Jeden nadawca wysyla pakiet do wszystkich hostow w danej sieci IPv4.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest limited broadcast w IPv4?",
+      "back": "255.255.255.255.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest directed broadcast?",
+      "back": "Ostatnim adresem podsieci, np. 172.16.4.255 dla /24.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy broadcast jest domyslnie przekazywany przez router?",
+      "back": "Nie, broadcast nie jest przekazywany przez router domyslnie.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza multicast?",
+      "back": "Jeden pakiet trafia do wybranej grupy odbiorcow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest zakres multicast IPv4?",
+      "back": "224.0.0.0-239.255.255.255.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy IPv6 uzywa broadcastu?",
+      "back": "Nie. Funkcje broadcastu realizuje m.in. multicast.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zasadniczy zakres maja zwykle adresy unicast IPv4?",
+      "back": "0.0.0.0-223.255.255.255, ale czesc tego zakresu jest zarezerwowana.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza dual stack?",
+      "back": "Urzadzenie jednoczesnie obsluguje stos protokolow IPv4 i IPv6.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza tunneling IPv6 przez IPv4?",
+      "back": "Pakiet IPv6 jest enkapsulowany wewnatrz pakietu IPv4 i przenoszony przez siec IPv4.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza translation przy wspolistnieniu IPv4 i IPv6?",
+      "back": "Mechanizm tlumaczy komunikacje pomiedzy IPv6 i IPv4, np. NAT64.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Ile bitow ma adres IPv6?",
+      "back": "128 bitow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak zapisywany jest adres IPv6?",
+      "back": "Jako osiem 16-bitowych grup szesnastkowych oddzielonych dwukropkami.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak mozna skrocic poczatkowe zera w grupie IPv6?",
+      "back": "Mozna je usunac, np. 0db8 -> db8 i 0001 -> 1.",
+      "type": "calculation",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Ile razy w jednym adresie IPv6 wolno uzyc symbolu ::?",
+      "back": "Tylko raz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak skrocic 2001:0db8:acad:a088:0000:0000:0000:0001?",
+      "back": "2001:db8:acad:a088::1.",
+      "type": "calculation",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza DHCP?",
+      "back": "Dynamic Host Configuration Protocol.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie informacje moze automatycznie przydzielic DHCP?",
+      "back": "Adres IPv4, maske podsieci, brame domyslna i adres serwera DNS.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza skrot DORA w DHCP?",
+      "back": "Discover, Offer, Request, Acknowledge.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi klient w DHCPDISCOVER?",
+      "back": "Rozglasza, ze szuka serwera DHCP.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza DHCPOFFER?",
+      "back": "Serwer proponuje konfiguracje, w tym dostepny adres IP.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza DHCPREQUEST?",
+      "back": "Klient wybiera oferte i prosi o przydzielenie proponowanego adresu.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza DHCPACK?",
+      "back": "Serwer potwierdza przydzial i przekazuje parametry dzierzawy.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres ma link-local IPv4?",
+      "back": "169.254.0.0/16; dla hostow zwykle 169.254.1.0-169.254.254.255.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy adres link-local IPv4 jest routowany poza lokalny segment?",
+      "back": "Nie, nie jest routowany poza lokalny segment.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest publiczny adres IPv4?",
+      "back": "Globalnie routowalnym i unikalnym adresem w internecie.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest prywatny adres IPv4?",
+      "back": "Adresem uzywanym wewnatrz sieci lokalnej, nieroutowanym w publicznym internecie.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie sa prywatne zakresy IPv4?",
+      "back": "10.0.0.0/8, 172.16.0.0/12 i 192.168.0.0/16.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzy zakres 127.0.0.0/8?",
+      "back": "Do loopback, czyli kierowania ruchu hosta do samego siebie.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest najczesciej uzywany adres loopback IPv4?",
+      "back": "127.0.0.1.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi IANA?",
+      "back": "Koordynuje globalna pule adresow IP i przydziela jej czesci organizacjom RIR.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza NAT?",
+      "back": "Network Address Translation, czyli tlumaczenie adresow IP.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Po co router wykonuje NAT dla pakietu wychodzacego do internetu?",
+      "back": "Zastepuje prywatny adres zrodlowy adresem publicznym i zapisuje mapowanie dla odpowiedzi.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza PAT?",
+      "back": "Port Address Translation, czyli rozroznianie polaczen takze po numerach portow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak inaczej nazywa sie PAT?",
+      "back": "NAT overload.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaka jest roznica miedzy DHCP a NAT?",
+      "back": "DHCP przydziela konfiguracje adresowa hostowi, a NAT tlumaczy adresy przy przekazywaniu ruchu.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza ARP?",
+      "back": "Address Resolution Protocol.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzy ARP w IPv4?",
+      "back": "Do ustalenia, jaki adres MAC odpowiada danemu adresowi IPv4 w sieci lokalnej.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie warstwy laczy ARP?",
+      "back": "Warstwe 3 IP i warstwe 2 Ethernet/MAC.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi host przed komunikacja w tej samej sieci?",
+      "back": "Porownuje adres docelowy ze swoja maska, aby sprawdzic czy cel jest w tej samej podsieci.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak dziala ARP Request?",
+      "back": "Host wysyla broadcast z pytaniem: kto ma ten adres IPv4?",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak dziala ARP Reply?",
+      "back": "Host z danym IPv4 odsyla unicast ze swoim adresem MAC.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co zapisuje nadawca po odpowiedzi ARP?",
+      "back": "Pare IPv4 -> MAC w tablicy ARP.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest adres broadcast MAC?",
+      "back": "FF:FF:FF:FF:FF:FF.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy IPv6 uzywa ARP?",
+      "back": "Nie. Podobne mapowanie wykonuje NDP z ICMPv6 i multicastem.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi host, gdy adres docelowy nalezy do innej podsieci?",
+      "back": "Wysyla ramke do bramy domyslnej.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy adres IP celu zmienia sie przy wysylaniu do innej sieci?",
+      "back": "Zwykle nie. Adres IP celu wskazuje koncowy host przez cala droge.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co wskazuje docelowy MAC na pierwszym odcinku komunikacji z inna siecia?",
+      "back": "MAC bramy domyslnej.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co router robi z ramka warstwy 2 przy kazdym przeskoku?",
+      "back": "Usuwa stara ramke warstwy 2 i tworzy nowa.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co zmienia sie na kazdym laczu podczas routingu: IP czy MAC?",
+      "back": "Adresy MAC zmieniaja sie na kazdym laczu, a adresy IP zwykle pozostaja bez zmian.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak host ustala MAC bramy domyslnej?",
+      "back": "Zna IP bramy z konfiguracji statycznej lub DHCP, a jesli nie zna MAC, wykonuje ARP dla IP bramy.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest routing?",
+      "back": "Procesem wyznaczania najlepszej drogi do sieci docelowej.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co sprawdza router podczas routingu pakietu?",
+      "back": "Docelowy adres IP pakietu i pasujace wpisy w tablicy routingu.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza C w tablicy routingu?",
+      "back": "Connected, czyli siec bezposrednio podlaczona.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza kolumna Network w tablicy routingu?",
+      "back": "Adres sieci docelowej.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza port lub interface w tablicy routingu?",
+      "back": "Interfejs, ktorym router ma wyslac pakiet.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest default route?",
+      "back": "Trasa uzywana, gdy nie ma bardziej szczegolowego wpisu pasujacego do sieci docelowej.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak zapisuje sie trase domyslna IPv4?",
+      "back": "0.0.0.0/0.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak router wybiera trase, gdy pasuje kilka wpisow?",
+      "back": "Wybiera najdluzszy pasujacy prefiks, czyli najbardziej szczegolowa trase.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest LAN?",
+      "back": "Siecia lokalna obejmujaca ograniczony obszar.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest intranet?",
+      "back": "Prywatna siec organizacji wykorzystujaca technologie internetowe, dostepna tylko dla uprawnionych uzytkownikow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "TCP vs UDP - najprostsze rozroznienie?",
+      "back": "TCP stawia na niezawodnosc, a UDP na male opoznienia i niski narzut.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Pelna nazwa TCP?",
+      "back": "Transmission Control Protocol.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Pelna nazwa UDP?",
+      "back": "User Datagram Protocol.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak TCP zapewnia dostarczenie?",
+      "back": "Przez potwierdzenia, numery sekwencyjne i retransmisje.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czy UDP gwarantuje dostarczenie i kolejnosc?",
+      "back": "Nie, UDP nie gwarantuje dostarczenia ani kolejnosci.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Podaj typowe zastosowania TCP.",
+      "back": "WWW, e-mail i przesylanie plikow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Podaj typowe zastosowania UDP.",
+      "back": "Streaming, rozmowy glosowe, gry online i DNS.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co identyfikuje numer portu?",
+      "back": "Usluge lub proces dzialajacy na hoscie.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Ile bitow maja porty TCP i UDP?",
+      "back": "16 bitow.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest zakres numerow portow TCP/UDP?",
+      "back": "0-65 535.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres maja well-known ports?",
+      "back": "0-1023.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres maja registered ports wedlug notatek?",
+      "back": "1024-49 151.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres maja dynamic/private ports wedlug notatek?",
+      "back": "49 152-65 535.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest socket?",
+      "back": "Polaczeniem adresu IP i numeru portu.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi DNS po wpisaniu adresu strony w przegladarce?",
+      "back": "Ustala adres IP serwera na podstawie nazwy domeny.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Na jakim porcie klient zwykle zestawia TCP dla HTTPS?",
+      "back": "Na porcie 443.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co wysyla przegladarka po zestawieniu polaczenia ze strona?",
+      "back": "Zadanie HTTP, a serwer zwraca odpowiedz z zasobem.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest URI?",
+      "back": "Uniform Resource Identifier, ogolny identyfikator zasobu.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest URL?",
+      "back": "Uniform Resource Locator, wskazuje polozenie zasobu i sposob dostepu.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest URN?",
+      "back": "Uniform Resource Name, identyfikuje zasob przez nazwe bez wskazywania polozenia.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie czesci ma URL https://www.example.com/autor/tekst.html?",
+      "back": "Protokol: https; host: www.example.com; sciezka: /autor/tekst.html.",
+      "type": "calculation",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma SSH?",
+      "back": "TCP 22.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma Telnet?",
+      "back": "TCP 23.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma SMTP?",
+      "back": "TCP 25.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma DNS?",
+      "back": "UDP/TCP 53.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakich portow uzywa DHCP?",
+      "back": "UDP 67 dla serwera i UDP 68 dla klienta.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma HTTP?",
+      "back": "TCP 80.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma POP3?",
+      "back": "TCP 110.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma IMAP?",
+      "back": "TCP 143.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki port ma HTTPS?",
+      "back": "TCP 443.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakich portow uzywa FTP?",
+      "back": "TCP 20/21: port 21 do sterowania, tradycyjnie port 20 do danych w trybie aktywnym.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "HTTP vs HTTPS?",
+      "back": "HTTP nie zapewnia szyfrowania, a HTTPS chroni transmisje przy uzyciu TLS.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co sprawdza ping?",
+      "back": "Osiagalnosc hosta i czas odpowiedzi przy uzyciu komunikatow ICMP Echo.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi ping -t w Windows?",
+      "back": "Wysyla echo bez konca, az do przerwania przez uzytkownika.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co robi ping -a w Windows?",
+      "back": "Probuje rozwiazac adres IP na nazwe hosta.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co pokazuje tracert?",
+      "back": "Kolejne routery na trasie do celu; odpowiednik w wielu systemach Unix to traceroute.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzy nslookup?",
+      "back": "Do odpytywania DNS i sprawdzania mapowania nazwy domenowej oraz adresu IP.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Kto retransmituje dane, gdy TCP nie otrzyma ACK?",
+      "back": "Nadawca TCP; routery tylko przekazuja pakiety.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie pasmo ma IEEE 802.11b?",
+      "back": "2,4 GHz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie pasmo ma IEEE 802.11g?",
+      "back": "2,4 GHz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie pasma ma IEEE 802.11n / Wi-Fi 4?",
+      "back": "2,4 GHz i 5 GHz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie pasmo ma IEEE 802.11ac / Wi-Fi 5?",
+      "back": "5 GHz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jakie pasma ma IEEE 802.11ax / Wi-Fi 6 i 6E?",
+      "back": "Wi-Fi 6: 2,4 GHz i 5 GHz; Wi-Fi 6E dodatkowo 6 GHz.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "2,4 GHz vs 5 GHz w Wi-Fi?",
+      "back": "2,4 GHz ma zwykle wiekszy zasieg i wiecej zaklocen; 5 GHz daje zwykle wieksza przepustowosc na krotszym dystansie.",
+      "type": "comparison",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co daje pasmo 6 GHz w Wi-Fi?",
+      "back": "Wiecej wolnego pasma, ale krotszy zasieg.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza BGP?",
+      "back": "Border Gateway Protocol.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzy BGP?",
+      "back": "Wymienia informacje o osiagalnosci sieci miedzy systemami autonomicznymi.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest MPLS?",
+      "back": "Multiprotocol Label Switching, przekazywanie ruchu na podstawie krotkich etykiet.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego operatorzy wykorzystuja MPLS?",
+      "back": "M.in. do budowania sieci WAN, VPN i sterowania ruchem.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki jest typowy prefiks podsieci IPv6?",
+      "back": "/64.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak zaczyna sie adres link-local IPv6?",
+      "back": "Od prefiksu fe80::/10.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jak zapisuje sie trase domyslna IPv6?",
+      "back": "::/0.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest WEP?",
+      "back": "Przestarzalym i zlamanym zabezpieczeniem Wi-Fi, ktore nie powinno byc uzywane.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Ile adresow teoretycznie zapewnia IPv4?",
+      "back": "2^32 = 4 294 967 296 adresow.",
+      "type": "calculation",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co zastapilo historyczny podzial klasowy IPv4?",
+      "back": "CIDR, czyli Classless Inter-Domain Routing.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres pierwszego oktetu miala klasa A?",
+      "back": "1-126, domyslna maska /8.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres pierwszego oktetu miala klasa B?",
+      "back": "128-191, domyslna maska /16.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaki zakres pierwszego oktetu miala klasa C?",
+      "back": "192-223, domyslna maska /24.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzyla klasa D IPv4?",
+      "back": "Do multicastu, zakres 224-239.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Do czego sluzyla klasa E IPv4?",
+      "back": "Do zastosowan eksperymentalnych i zarezerwowanych, zakres 240-255.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Dlaczego 127 nie nalezy do uzytecznego zakresu hostow klasy A?",
+      "back": "Bo 127.0.0.0/8 jest zarezerwowane dla loopback.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest Static NAT?",
+      "back": "Stalym mapowaniem jeden do jednego miedzy adresem prywatnym i publicznym.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest Dynamic NAT?",
+      "back": "Wyborem publicznego adresu z przygotowanej puli.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest topologia gwiazdy?",
+      "back": "Wszystkie urzadzenia lacza sie z centralnym urzadzeniem, zwykle switchem.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co powoduje awaria centralnego switcha w topologii gwiazdy?",
+      "back": "Zatrzymuje cala siec.",
+      "type": "understanding",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest topologia magistrali?",
+      "back": "Wszystkie urzadzenia korzystaja ze wspolnego przewodu glownego.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest topologia pierscienia?",
+      "back": "Kazde urzadzenie laczy sie z dwoma sasiadami, a dane przemieszczaja sie wokol pierscienia.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Czym jest topologia siatki?",
+      "back": "Urzadzenia maja wiele polaczen miedzy soba, co daje duza odpornosc kosztem liczby laczy i zlozonosci.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Jaka topologia ma jedno centralne urzadzenie, do ktorego podpiete sa wszystkie hosty?",
+      "back": "Topologia gwiazdy.",
+      "type": "scenario",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza ACK?",
+      "back": "Acknowledgment - potwierdzenie odbioru.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza CIDR?",
+      "back": "Classless Inter-Domain Routing - bezklasowy zapis i podzial sieci IP.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza ICMP?",
+      "back": "Internet Control Message Protocol - komunikaty kontrolne i diagnostyczne, np. ping.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza IEEE?",
+      "back": "Institute of Electrical and Electronics Engineers.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza NDP?",
+      "back": "Neighbor Discovery Protocol - odkrywanie sasiadow i mapowanie w IPv6.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    },
+    {
+      "front": "Co oznacza TLS?",
+      "back": "Transport Layer Security - szyfrowanie transmisji, m.in. w HTTPS.",
+      "type": "definition",
+      "source": "notatki_sieci_IP_ARP_routing.pdf"
+    }
+  ]
+}
