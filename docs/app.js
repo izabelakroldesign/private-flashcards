@@ -304,16 +304,39 @@ function streak() {
   return count;
 }
 
+function deckForCard(card) {
+  return state.data.decks.find((deck) => deck.id === card.deckId);
+}
+
+function isLinuxCard(card) {
+  const deck = deckForCard(card);
+  const text = `${deck?.name || ""} ${card.source || ""} ${card.front || ""} ${card.back || ""}`;
+  return /\b(linux|linuks|linuksa)\b/i.test(text);
+}
+
+function prioritizeLinuxCards(cards, fallbackTime) {
+  return [...cards].sort((a, b) => {
+    const priority = Number(isLinuxCard(b)) - Number(isLinuxCard(a));
+    if (priority !== 0) return priority;
+    return fallbackTime(a) - fallbackTime(b);
+  });
+}
+
 function buildQueue(deckId) {
   const limitNew = Number(state.data.settings.dailyNewLimit) || 10;
   const limitReview = Number(state.data.settings.dailyReviewLimit) || 100;
   const now = Date.now();
   const all = deckId ? state.data.cards.filter((card) => card.deckId === deckId) : state.data.cards;
-  const due = all
-    .filter((card) => card.state !== "new" && card.nextReviewAt && Date.parse(card.nextReviewAt) <= now)
-    .sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt))
+  const due = prioritizeLinuxCards(
+    all.filter((card) => card.state !== "new" && card.nextReviewAt && Date.parse(card.nextReviewAt) <= now),
+    (card) => Date.parse(card.nextReviewAt)
+  )
     .slice(0, limitReview);
-  const fresh = all.filter((card) => card.state === "new").sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)).slice(0, limitNew);
+  const fresh = prioritizeLinuxCards(
+    all.filter((card) => card.state === "new"),
+    (card) => Date.parse(card.createdAt)
+  )
+    .slice(0, limitNew);
   const queue = [];
   const max = Math.max(due.length, fresh.length);
   for (let i = 0; i < max; i += 1) {
