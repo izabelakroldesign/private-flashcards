@@ -331,6 +331,11 @@ function topicForId(id) {
   return STUDY_TOPICS.find((topic) => topic.id === id);
 }
 
+function visibleStudyTopics() {
+  const hasLinuxDeck = state.data.decks.some((deck) => normalizeText(deck.name) === "linux");
+  return STUDY_TOPICS.filter((topic) => !(topic.id === `${TOPIC_PREFIX}linux` && hasLinuxDeck));
+}
+
 function cardsForTarget(targetId) {
   const topic = topicForId(targetId);
   if (topic) return state.data.cards.filter(topic.matches);
@@ -503,7 +508,7 @@ function todayView() {
 }
 
 function decksView() {
-  const topicRows = STUDY_TOPICS.map((topic) => {
+  const topicRows = visibleStudyTopics().map((topic) => {
     const stats = deckStats(topic.id);
     return `<button class="row" data-topic="${topic.id}"><span class="row-title">${escapeHtml(topic.name)}</span><span class="row-meta">${stats.total} cards · ${stats.due} due · ${stats.newCards} new</span></button>`;
   }).join("");
@@ -627,7 +632,7 @@ function cardsView() {
       <input class="input" id="search" value="${escapeHtml(state.query)}" placeholder="Search" />
       <div class="chips">
         <button class="chip ${!state.selectedDeckId ? "active" : ""}" data-filter-deck="">All</button>
-        ${STUDY_TOPICS.map((topic) => `<button class="chip ${state.selectedDeckId === topic.id ? "active" : ""}" data-filter-deck="${topic.id}">${escapeHtml(topic.name)}</button>`).join("")}
+        ${visibleStudyTopics().map((topic) => `<button class="chip ${state.selectedDeckId === topic.id ? "active" : ""}" data-filter-deck="${topic.id}">${escapeHtml(topic.name)}</button>`).join("")}
         ${decks.map((deck) => `<button class="chip ${state.selectedDeckId === deck.id ? "active" : ""}" data-filter-deck="${deck.id}">${escapeHtml(deck.name)}</button>`).join("")}
       </div>
       <div>
