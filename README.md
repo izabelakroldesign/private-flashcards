@@ -82,3 +82,8 @@ The app ships with built-in study data loaded once into browser storage:
 
 - `Networking Basics`
 - `IP, DHCP, NAT, ARP i routing`
+
+The Decks screen also shows topic filters:
+
+- `Sieci` - non-Linux cards
+- `Linux` - cards whose deck, source, front, or back mentions Linux/Linuks

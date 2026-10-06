@@ -6,6 +6,11 @@ const BUILT_IN_IMPORTS = [
     url: "./data/ip_arp_routing_cards.json",
   },
 ];
+const TOPIC_PREFIX = "topic:";
+const STUDY_TOPICS = [
+  { id: `${TOPIC_PREFIX}networks`, name: "Sieci", matches: (card) => !isLinuxCard(card) },
+  { id: `${TOPIC_PREFIX}linux`, name: "Linux", matches: (card) => isLinuxCard(card) },
+];
 const NETWORKING_PDF_MIGRATION = "networkingPdfCardsV1";
 const NETWORKING_PDF_SOURCE = "anki_networking_cards.pdf";
 const NETWORKING_PDF_CARDS = [
@@ -270,7 +275,7 @@ function importPayload(payload, targetDeckId) {
 
 function deckStats(deckId) {
   const today = Date.now();
-  const cards = deckId ? state.data.cards.filter((card) => card.deckId === deckId) : state.data.cards;
+  const cards = cardsForTarget(deckId);
   return {
     total: cards.length,
     due: cards.filter((card) => card.state !== "new" && card.nextReviewAt && Date.parse(card.nextReviewAt) <= today).length,
@@ -314,6 +319,28 @@ function isLinuxCard(card) {
   return /\b(linux|linuks|linuksa)\b/i.test(text);
 }
 
+function isTopicId(id) {
+  return typeof id === "string" && id.startsWith(TOPIC_PREFIX);
+}
+
+function topicForId(id) {
+  return STUDY_TOPICS.find((topic) => topic.id === id);
+}
+
+function cardsForTarget(targetId) {
+  const topic = topicForId(targetId);
+  if (topic) return state.data.cards.filter(topic.matches);
+  if (targetId) return state.data.cards.filter((card) => card.deckId === targetId);
+  return state.data.cards;
+}
+
+function titleForTarget(targetId) {
+  const topic = topicForId(targetId);
+  if (topic) return topic.name;
+  if (targetId) return state.data.decks.find((deck) => deck.id === targetId)?.name || "Deck";
+  return "All decks";
+}
+
 function prioritizeLinuxCards(cards, fallbackTime) {
   return [...cards].sort((a, b) => {
     const priority = Number(isLinuxCard(b)) - Number(isLinuxCard(a));
@@ -326,7 +353,7 @@ function buildQueue(deckId) {
   const limitNew = Number(state.data.settings.dailyNewLimit) || 10;
   const limitReview = Number(state.data.settings.dailyReviewLimit) || 100;
   const now = Date.now();
-  const all = deckId ? state.data.cards.filter((card) => card.deckId === deckId) : state.data.cards;
+  const all = cardsForTarget(deckId);
   const due = prioritizeLinuxCards(
     all.filter((card) => card.state !== "new" && card.nextReviewAt && Date.parse(card.nextReviewAt) <= now),
     (card) => Date.parse(card.nextReviewAt)
@@ -472,6 +499,10 @@ function todayView() {
 }
 
 function decksView() {
+  const topicRows = STUDY_TOPICS.map((topic) => {
+    const stats = deckStats(topic.id);
+    return `<button class="row" data-topic="${topic.id}"><span class="row-title">${escapeHtml(topic.name)}</span><span class="row-meta">${stats.total} cards · ${stats.due} due · ${stats.newCards} new</span></button>`;
+  }).join("");
   const rows = state.data.decks.map((deck) => {
     const stats = deckStats(deck.id);
     return `<button class="row" data-deck="${deck.id}"><span class="row-title">${escapeHtml(deck.name)}</span><span class="row-meta">${stats.total} cards · ${stats.due} due</span></button>`;
@@ -482,11 +513,38 @@ function decksView() {
       <button class="text-btn" data-import>Import JSON</button>
     </header>
     ${state.message ? `<p class="message">${escapeHtml(state.message)}</p>` : ""}
-    <section>${rows || `<div class="empty">No decks yet. Import JSON to start.</div>`}</section>
+    <section class="stack">
+      <div>
+        <p class="subtitle">Topics</p>
+        ${topicRows}
+      </div>
+      <div>
+        <p class="subtitle">Decks</p>
+        ${rows || `<div class="empty">No decks yet. Import JSON to start.</div>`}
+      </div>
+    </section>
   `);
 }
 
 function deckDetailView(deckId) {
+  const topic = topicForId(deckId);
+  if (topic) {
+    const stats = deckStats(deckId);
+    return shell(`
+      <header class="top">
+        <button class="text-btn" data-back-decks>Back</button>
+      </header>
+      <section class="stack">
+        <h1 class="title">${escapeHtml(topic.name)}</h1>
+        <div class="panel stack">
+          <p class="hero-count">${stats.total} cards</p>
+          <p class="hero-count">${stats.due} due · ${stats.newCards} new</p>
+          <p class="muted">${stats.learned} learned</p>
+        </div>
+        <button class="primary" data-start-deck="${deckId}" ${stats.due + stats.newCards === 0 ? "disabled" : ""}>Start review</button>
+      </section>
+    `);
+  }
   const deck = state.data.decks.find((item) => item.id === deckId);
   if (!deck) return decksView();
   const stats = deckStats(deckId);
@@ -550,7 +608,8 @@ function studyView() {
 function cardsView() {
   const decks = state.data.decks;
   const cards = state.data.cards.filter((card) => {
-    const matchesDeck = !state.selectedDeckId || card.deckId === state.selectedDeckId;
+    const topic = topicForId(state.selectedDeckId);
+    const matchesDeck = topic ? topic.matches(card) : !state.selectedDeckId || card.deckId === state.selectedDeckId;
     const q = normalizeText(state.query);
     const matchesQuery = !q || normalizeText(`${card.front} ${card.back} ${card.source || ""}`).includes(q);
     return matchesDeck && matchesQuery;
@@ -564,6 +623,7 @@ function cardsView() {
       <input class="input" id="search" value="${escapeHtml(state.query)}" placeholder="Search" />
       <div class="chips">
         <button class="chip ${!state.selectedDeckId ? "active" : ""}" data-filter-deck="">All</button>
+        ${STUDY_TOPICS.map((topic) => `<button class="chip ${state.selectedDeckId === topic.id ? "active" : ""}" data-filter-deck="${topic.id}">${escapeHtml(topic.name)}</button>`).join("")}
         ${decks.map((deck) => `<button class="chip ${state.selectedDeckId === deck.id ? "active" : ""}" data-filter-deck="${deck.id}">${escapeHtml(deck.name)}</button>`).join("")}
       </div>
       <div>
@@ -627,6 +687,11 @@ document.addEventListener("click", async (event) => {
   if (target.dataset.startDeck) startStudy(target.dataset.startDeck);
   if (target.dataset.deck) {
     state.selectedDeckId = target.dataset.deck;
+    state.view = "decks";
+    render();
+  }
+  if (target.dataset.topic) {
+    state.selectedDeckId = target.dataset.topic;
     state.view = "decks";
     render();
   }
