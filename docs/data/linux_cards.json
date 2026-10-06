@@ -1,0 +1,745 @@
+{
+  "deck": {
+    "name": "Linux"
+  },
+  "cards": [
+    {
+      "front": "Czym jest kernel w Linuksie?",
+      "back": "Kernel, czyli jadro, jest centralna czescia systemu operacyjnego. Zarzadza sprzetem i zasobami oraz posredniczy miedzy programami a sprzetem.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jakimi zasobami zarzadza kernel Linuksa?",
+      "back": "Czasem CPU, uzyciem RAM, dostepem do dyskow i systemow plikow, komunikacja sieciowa oraz uruchomionymi procesami.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Kim jest root w Linuksie?",
+      "back": "Root to konto administratora z bardzo szerokimi uprawnieniami.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jaka jest roznica miedzy / i /root?",
+      "back": "/ to poczatek drzewa systemu plikow, a /root to katalog domowy uzytkownika root.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Program vs proces w Linuksie?",
+      "back": "Program to kod zapisany na dysku, a proces to uruchomiona instancja programu.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czy ten sam program mozna uruchomic kilka razy?",
+      "back": "Tak. Kazda uruchomiona instancja jest osobnym procesem i ma wlasny PID.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Terminal vs shell?",
+      "back": "Terminal to okno/srodowisko do wpisywania polecen. Shell to program interpretujacy polecenia, np. Bash, Zsh lub sh.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak Linux organizuje dyski w systemie plikow?",
+      "back": "Nie jako C:, D: itd. Wszystko jest wlaczane do jednego drzewa zaczynajacego sie od /.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza ~ w shellu?",
+      "back": "Skrot do katalogu domowego aktualnego uzytkownika; dla root zwykle /root.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi komenda pwd?",
+      "back": "Pokazuje pelna sciezke biezacego katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi ls?",
+      "back": "Pokazuje zawartosc katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi cd katalog?",
+      "back": "Przechodzi do wskazanego katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi cd ..?",
+      "back": "Przechodzi do katalogu nadrzednego.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznaczaja . i .. w sciezkach Linuksa?",
+      "back": ". oznacza biezacy katalog, a .. katalog nadrzedny.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Sciezka absolutna vs wzgledna?",
+      "back": "Sciezka absolutna zaczyna sie od / i idzie od korzenia systemu. Sciezka wzgledna jest liczona od aktualnego katalogu.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak rozpoznac plik ukryty w Linuksie?",
+      "back": "Jego nazwa zaczyna sie od kropki.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi ls -a?",
+      "back": "Pokazuje takze pliki ukryte.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Do czego sluzy /etc?",
+      "back": "Do konfiguracji systemu i wielu programow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Do czego sluzy /var?",
+      "back": "Do danych czesto zmieniajacych sie, np. logow w /var/log.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Do czego sluzy /tmp?",
+      "back": "Do plikow tymczasowych.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Do czego sluzy /usr/bin?",
+      "back": "Zawiera duza czesc programow i komend uzytkowych.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Do czego sluzy /dev?",
+      "back": "Zawiera specjalne pliki reprezentujace urzadzenia i interfejsy jadra.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi find . -name \"report.txt\"?",
+      "back": "Szuka pliku o nazwie report.txt, zaczynajac od biezacego katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi whoami?",
+      "back": "Pokazuje aktualnego uzytkownika.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sudo?",
+      "back": "Uruchamia dozwolone polecenie z podwyzszonymi uprawnieniami, najczesciej jako root.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co pokazuje groups?",
+      "back": "Grupy, do ktorych nalezy uzytkownik.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza pierwszy znak w wyniku ls -l?",
+      "back": "Typ obiektu, np. - oznacza zwykly plik, a d katalog.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak czytac trzy trojki uprawnien w ls -l?",
+      "back": "Oznaczaja uprawnienia wlasciciela, grupy i pozostalych uzytkownikow.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza r w uprawnieniach pliku?",
+      "back": "Read, czyli odczyt.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza w w uprawnieniach pliku?",
+      "back": "Write, czyli zapis lub modyfikacje.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza x w uprawnieniach?",
+      "back": "Execute, czyli wykonanie; dla katalogu mozliwosc wejscia/przechodzenia.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi chmod?",
+      "back": "Zmienia uprawnienia pliku lub katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi chmod +x script.sh?",
+      "back": "Dodaje prawo wykonania dla script.sh.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jakie wartosci liczbowe maja r, w, x w chmod?",
+      "back": "r=4, w=2, x=1.",
+      "type": "calculation",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza chmod 640 file.txt?",
+      "back": "Owner: rw-, group: r--, others: ---.",
+      "type": "calculation",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi chown?",
+      "back": "Zmienia wlasciciela pliku; moze tez zmieniac grupe.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza PID?",
+      "back": "Process ID, czyli identyfikator procesu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza PPID?",
+      "back": "Parent Process ID, czyli PID procesu rodzica.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co pokazuje ps?",
+      "back": "Procesy powiazane z biezaca sesja lub terminalem.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co pokazuje ps aux?",
+      "back": "Szeroki widok procesow w systemie.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co pokazuje top?",
+      "back": "Dynamiczny podglad procesow i wykorzystania zasobow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi kill PID domyslnie?",
+      "back": "Wysyla SIGTERM (15), czyli prosbe o zakonczenie procesu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "SIGTERM vs SIGKILL?",
+      "back": "SIGTERM pozwala procesowi posprzatac i poprawnie sie zakonczyc. SIGKILL konczy natychmiast bez takiej mozliwosci.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi kill -9 PID?",
+      "back": "Wysyla SIGKILL, czyli natychmiast konczy proces.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Foreground vs background process?",
+      "back": "Foreground zajmuje terminal. Background dziala w tle, a shell moze przyjmowac kolejne polecenia.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sleep 100 &?",
+      "back": "Uruchamia sleep 100 w tle.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi jobs?",
+      "back": "Pokazuje zadania uruchomione z biezacego shella.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi Ctrl+Z?",
+      "back": "Wstrzymuje proces dzialajacy w foreground.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robia bg i fg?",
+      "back": "bg wznawia zadanie w tle, a fg przenosi zadanie na pierwszy plan.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jakie sa trzy standardowe strumienie procesu?",
+      "back": "stdin (0), stdout (1), stderr (2).",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza stdout?",
+      "back": "Standardowe wyjscie, numer strumienia 1.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza stderr?",
+      "back": "Standardowe wyjscie bledow, numer strumienia 2.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi > w shellu?",
+      "back": "Przekierowuje stdout do pliku, tworzac go lub nadpisujac.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi >> w shellu?",
+      "back": "Dopisuje stdout na koncu pliku.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi 2>?",
+      "back": "Przekierowuje stderr do pliku.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi pipe |?",
+      "back": "Laczy komendy: stdout pierwszej staje sie stdin nastepnej.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi grep?",
+      "back": "Wyszukuje tekst pasujacy do wzorca.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi grep -i?",
+      "back": "Ignoruje wielkosc liter.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi grep -n?",
+      "back": "Pokazuje numery linii.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi grep -v?",
+      "back": "Pokazuje linie, ktore nie pasuja do wzorca.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi find /home -name \"notes.txt\"?",
+      "back": "Przeszukuje drzewo katalogow od /home i szuka pliku notes.txt.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza * w find . -name \"*.conf\"?",
+      "back": "Gwiazdka dopasowuje dowolny ciag znakow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest usluga w Linuksie?",
+      "back": "Programem lub procesem dzialajacym w tle i realizujacym okreslone zadanie systemowe.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest systemctl?",
+      "back": "Poleceniem do sterowania uslugami zarzadzanymi przez systemd.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi systemctl status ssh?",
+      "back": "Sprawdza stan uslugi SSH.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi systemctl start ssh?",
+      "back": "Uruchamia usluge SSH teraz.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi systemctl enable ssh?",
+      "back": "Ustawia automatyczny start uslugi SSH przy uruchomieniu systemu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "systemctl start vs enable?",
+      "back": "start uruchamia usluge teraz, a enable konfiguruje automatyczne uruchamianie przy starcie systemu.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest /dev/null?",
+      "back": "Specjalnym urzadzeniem, ktore odrzuca wszystko, co do niego zapiszesz.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi command > /dev/null 2>&1?",
+      "back": "Wyrzuca stdout i stderr polecenia do /dev/null.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest pakiet w Linuksie?",
+      "back": "Przygotowanym zestawem plikow programu wraz z metadanymi potrzebnymi do instalacji.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym sa pakiety .deb?",
+      "back": "Pakietami czesto spotykanymi w Debianie i Ubuntu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sudo apt update?",
+      "back": "Odswieza liste dostepnych pakietow i wersji.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czy apt update aktualizuje programy?",
+      "back": "Nie. Aktualizuje informacje o dostepnych wersjach. Programy aktualizuje apt upgrade.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi apt show pakiet?",
+      "back": "Pokazuje informacje o pakiecie.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sudo apt install pakiet?",
+      "back": "Instaluje pakiet.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sudo apt upgrade?",
+      "back": "Aktualizuje zainstalowane pakiety.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi dpkg -l?",
+      "back": "Pokazuje liste zainstalowanych pakietow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi dpkg -i plik.deb?",
+      "back": "Instaluje lokalny pakiet .deb.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Archiwizacja vs kompresja?",
+      "back": "Archiwizacja laczy wiele plikow/katalogow w jeden plik, a kompresja zmniejsza rozmiar danych.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": ".tar vs .tar.gz?",
+      "back": ".tar to archiwum, a .tar.gz to archiwum TAR dodatkowo skompresowane gzipem.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi tar -cvf lab.tar lab/?",
+      "back": "Tworzy archiwum TAR z katalogu lab/.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi tar -xvf lab.tar?",
+      "back": "Rozpakowuje archiwum TAR.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi tar -czvf lab.tar.gz lab/?",
+      "back": "Tworzy archiwum TAR i kompresuje je gzipem.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznaczaja opcje tar: c, x, v, f, z?",
+      "back": "c=create, x=extract, v=verbose, f=file, z=uzyj gzip.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "gzip vs ZIP?",
+      "back": "gzip kompresuje glownie pojedynczy strumien/plik, a ZIP laczy archiwizacje i kompresje w jednym formacie.",
+      "type": "comparison",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest zmienna srodowiskowa?",
+      "back": "Nazwana wartoscia przekazywana procesom.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak wyswietlic wszystkie zmienne srodowiskowe?",
+      "back": "Poleceniem env.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak wyswietlic wartosc HOME?",
+      "back": "echo $HOME.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest PATH?",
+      "back": "Lista katalogow, w ktorych shell szuka programow po wpisaniu samej nazwy komendy.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak sa rozdzielone katalogi w PATH?",
+      "back": "Dwukropkami.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi export PATH=\"$PATH:$HOME/bin\"?",
+      "back": "Zachowuje dotychczasowy PATH i dopisuje na koncu katalog $HOME/bin.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest Bash?",
+      "back": "Jednym z rodzajow shella.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest prompt?",
+      "back": "Tekstem wyswietlanym przed miejscem wpisywania komendy, np. user@linux:~$.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza shebang #!/bin/bash?",
+      "back": "Informuje system, aby uruchomic skrypt przez Bash.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi history?",
+      "back": "Wyswietla historie polecen.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi !!?",
+      "back": "Ponownie wykonuje ostatnie polecenie.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi sudo !!?",
+      "back": "Wykonuje poprzednie polecenie ponownie z sudo.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi Ctrl+R w Bashu?",
+      "back": "Uruchamia interaktywne wyszukiwanie w historii.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Gdzie zwykle zapisywana jest historia Basha?",
+      "back": "W ~/.bash_history.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza wildcard *?",
+      "back": "Dowolny ciag znakow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza wildcard ??",
+      "back": "Dokladnie jeden dowolny znak.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza wildcard [1-3]?",
+      "back": "Jeden znak z podanego zakresu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Kiedy rozwijane sa wildcardy?",
+      "back": "Shell rozwija je przed uruchomieniem programu.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi operator &&?",
+      "back": "Uruchamia druga komende tylko, jesli pierwsza zakonczyla sie sukcesem.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi operator ||?",
+      "back": "Uruchamia druga komende tylko, jesli pierwsza zakonczyla sie bledem.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi operator ;?",
+      "back": "Uruchamia kolejna komende niezaleznie od wyniku poprzedniej.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Gdzie Linux zapisuje kod zakonczenia ostatniej komendy?",
+      "back": "W zmiennej $?.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza exit code 0?",
+      "back": "Sukces.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Jak zapisac i wyjsc w vim?",
+      "back": ":wq.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi uname?",
+      "back": "Pokazuje podstawowa informacje o systemie lub kernelu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi uname -a?",
+      "back": "Pokazuje szersze informacje o kernelu i systemie.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi hostname?",
+      "back": "Pokazuje nazwe hosta lub maszyny.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi uptime?",
+      "back": "Pokazuje, jak dlugo system dziala oraz load average.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czym jest montowanie w Linuksie?",
+      "back": "Wlaczaniem nosnikow i partycji do jednego drzewa katalogow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi df -h?",
+      "back": "Pokazuje wolne i zajete miejsce na zamontowanych systemach plikow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi du -sh katalog?",
+      "back": "Pokazuje laczny rozmiar wskazanego katalogu.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi lsblk?",
+      "back": "Pokazuje liste urzadzen blokowych, np. dyskow i partycji.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi mount?",
+      "back": "Pokazuje montowania, a z argumentami montuje system plikow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi umount?",
+      "back": "Odmontowuje system plikow.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Czy montowanie kopiuje pliki na dysk komputera?",
+      "back": "Nie. Udostepnia zawartosc systemu plikow pod wybranym katalogiem, czyli mount point.",
+      "type": "understanding",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza /dev/sda?",
+      "back": "Przykladowa nazwa urzadzenia dyskowego.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co oznacza /dev/sda1?",
+      "back": "Przykladowa nazwa partycji na urzadzeniu /dev/sda.",
+      "type": "definition",
+      "source": "linux_notatki_polaczone.pdf"
+    }
+  ]
+}

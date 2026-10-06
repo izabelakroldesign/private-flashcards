@@ -82,6 +82,7 @@ The app ships with built-in study data loaded once into browser storage:
 
 - `Networking Basics`
 - `IP, DHCP, NAT, ARP i routing`
+- `Linux`
 
 The Decks screen also shows topic filters:
 
