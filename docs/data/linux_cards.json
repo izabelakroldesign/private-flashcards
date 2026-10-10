@@ -740,6 +740,132 @@
       "back": "Przykladowa nazwa partycji na urzadzeniu /dev/sda.",
       "type": "definition",
       "source": "linux_notatki_polaczone.pdf"
+    },
+    {
+      "front": "Co robi wc?",
+      "back": "Liczy linie, slowa i bajty.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi wc -l?",
+      "back": "Liczy znaki nowej linii, czyli w praktyce liczbe linii.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi wc -w?",
+      "back": "Liczy slowa.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi wc -c?",
+      "back": "Liczy bajty.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi wc -m?",
+      "back": "Liczy znaki.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi ss?",
+      "back": "Wyswietla informacje o gniazdach sieciowych.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi ss -ltn?",
+      "back": "Pokazuje nasluchujace porty TCP numerycznie.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi ss -ltnp?",
+      "back": "Pokazuje nasluchujace porty TCP numerycznie oraz powiazane procesy, jesli sa dostepne.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi ps -ef?",
+      "back": "Pokazuje procesy, w tym PID i PPID.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi ps -o pid,ppid,user,stat,cmd -p PID?",
+      "back": "Pokazuje wybrane wlasciwosci wskazanego procesu.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi xxd?",
+      "back": "Wyswietla bajty w systemie szesnastkowym, czyli hex.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi xxd -l 16 plik?",
+      "back": "Pokazuje pierwszych 16 bajtow pliku.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi file?",
+      "back": "Rozpoznaje typ pliku na podstawie zawartosci.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi sha256sum plik?",
+      "back": "Oblicza skrot SHA-256 pliku.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi exiftool zdjecie.jpg?",
+      "back": "Odczytuje metadane pliku.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi grep -E 'INFO|WARNING' plik?",
+      "back": "Znajduje linie zawierajace INFO albo WARNING.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Czym sa magic bytes?",
+      "back": "To charakterystyczny ciag bajtow pozwalajacy rozpoznac format pliku niezaleznie od rozszerzenia.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Jaka jest sygnatura hex pliku PNG?",
+      "back": "89 50 4E 47 0D 0A 1A 0A.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Jaka jest sygnatura hex pliku JPEG?",
+      "back": "FF D8 FF.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Jaka jest sygnatura hex pliku PDF?",
+      "back": "25 50 44 46 2D, czyli tekstowo %PDF-.",
+      "type": "definition",
+      "source": "Untitled document.md"
+    },
+    {
+      "front": "Jaka jest sygnatura hex pliku MP3 z tagiem ID3?",
+      "back": "49 44 33, czyli tekstowo ID3.",
+      "type": "definition",
+      "source": "Untitled document.md"
     }
   ]
 }
