@@ -9,12 +9,24 @@
     <meta http-equiv="Expires" content="0" />
     <title>Private Flashcards</title>
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
-    <link rel="manifest" href="./manifest.webmanifest?v=20261010-linux-extra" />
-    <link rel="stylesheet" href="./styles.css?v=20261010-linux-extra" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script>
+      const assetVersion = Date.now().toString();
+      const bustParams = new URLSearchParams(window.location.search);
+      if (bustParams.has("bust")) {
+        window.history.replaceState({}, "", `${window.location.pathname}${window.location.hash}`);
+      }
+      document.write(`<link rel="stylesheet" href="./styles.css?v=${assetVersion}" />`);
+    </script>
   </head>
   <body>
     <div id="app" class="app-shell"></div>
     <input id="json-file" type="file" accept="application/json,.json" hidden />
-    <script src="./app.js?v=20261010-linux-extra" defer></script>
+    <script>
+      const script = document.createElement("script");
+      script.src = `./app.js?v=${assetVersion}`;
+      script.defer = true;
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
