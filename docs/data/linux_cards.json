@@ -866,6 +866,222 @@
       "back": "49 44 33, czyli tekstowo ID3.",
       "type": "definition",
       "source": "Untitled document.md"
+    },
+    {
+      "front": "Co robi tar -cf archiwum.tar folder/?",
+      "back": "Tworzy archiwum TAR z podanego folderu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -czf archiwum.tar.gz folder/?",
+      "back": "Tworzy skompresowane archiwum TAR.GZ z podanego folderu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -tf archiwum.tar?",
+      "back": "Wyswietla liste plikow w archiwum TAR bez rozpakowywania.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -tzf archiwum.tar.gz?",
+      "back": "Wyswietla zawartosc archiwum TAR.GZ bez rozpakowywania.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -xf archiwum.tar?",
+      "back": "Rozpakowuje archiwum TAR.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -xzf archiwum.tar.gz?",
+      "back": "Rozpakowuje archiwum TAR.GZ.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi tar -xzf plik.tar.gz -C folder/?",
+      "back": "Rozpakowuje archiwum TAR.GZ do wskazanego katalogu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co oznacza flaga tar -t?",
+      "back": "List, czyli wyswietlanie zawartosci archiwum bez rozpakowywania.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co oznacza flaga tar -C?",
+      "back": "Zmiane katalogu roboczego dla operacji, np. rozpakowanie do wybranego folderu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi zip -r archiwum.zip folder/?",
+      "back": "Pakuje caly folder do archiwum ZIP rekurencyjnie.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi unzip archiwum.zip?",
+      "back": "Rozpakowuje archiwum ZIP do biezacego katalogu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi unzip archiwum.zip -d folder/?",
+      "back": "Rozpakowuje archiwum ZIP do wskazanego katalogu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi unzip -l archiwum.zip?",
+      "back": "Pokazuje zawartosc archiwum ZIP bez rozpakowywania.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep -o \"ERROR\" plik?",
+      "back": "Wypisuje kazde dopasowanie osobno.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep -F \"192.168.1.1\" plik?",
+      "back": "Wyszukuje doslowny tekst, bez interpretowania wzorca jako wyrazenia regularnego.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep -n \"ERROR\" plik?",
+      "back": "Pokazuje pasujace linie razem z numerami linii.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep -v \"ERROR\" plik?",
+      "back": "Wyswietla linie, ktore nie zawieraja ERROR.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi sort plik?",
+      "back": "Sortuje linie pliku.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi uniq plik?",
+      "back": "Usuwa sasiadujace duplikaty linii.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep \"ERROR\" plik | wc -l?",
+      "back": "Liczy linie zawierajace ERROR.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi grep \"ERROR\" plik | sort | uniq?",
+      "back": "Pokazuje unikalne linie zawierajace ERROR.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "grep \"ERROR\" plik | grep \"WARNING\" vs grep -E \"ERROR|WARNING\" plik?",
+      "back": "Pierwsze szuka linii zawierajacych oba slowa jednoczesnie. Drugie szuka linii zawierajacych co najmniej jedno z tych slow.",
+      "type": "comparison",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi curl http://127.0.0.1:8765?",
+      "back": "Wysyla zadanie HTTP do lokalnego serwera na porcie 8765.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co robi strings plik?",
+      "back": "Wydobywa czytelne ciagi znakow z danych binarnych.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest offset?",
+      "back": "Pozycja danych wzgledem poczatku pliku.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest SHA-256?",
+      "back": "Funkcja skrotu dajaca wynik 256-bitowy.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest file integrity?",
+      "back": "Integralnosc pliku, czyli brak niepozadanych zmian danych.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest digital forensics?",
+      "back": "Informatyka sledcza: analiza i zabezpieczanie dowodow cyfrowych.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym sa metadata?",
+      "back": "Dane opisujace plik, np. czas utworzenia albo model aparatu.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest phishing?",
+      "back": "Proba wyludzenia danych przez podszywanie sie pod zaufane zrodlo.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest SPF?",
+      "back": "Mechanizm autoryzacji serwerow wysylajacych e-mail dla danej domeny.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest DKIM?",
+      "back": "Mechanizm kryptograficznego podpisywania wiadomosci e-mail.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest DMARC?",
+      "back": "Polityka uwierzytelniania i zgodnosci domen e-mail, oparta m.in. o SPF i DKIM.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Co moze wskazywac naglowek X-Originating-IP?",
+      "back": "Zrodlowy adres IP klienta, jesli taki naglowek wystepuje w wiadomosci.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest /etc/shadow?",
+      "back": "Chroniony plik zawierajacy hashe hasel i dane dotyczace ich waznosci.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Czym jest least privilege?",
+      "back": "Zasada przyznawania minimalnych niezbednych uprawnien.",
+      "type": "definition",
+      "source": "Untitled document (1).md"
     }
   ]
 }
