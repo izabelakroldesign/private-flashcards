@@ -6,8 +6,8 @@ const BUILT_IN_IMPORTS = [
     url: "./data/ip_arp_routing_cards.json",
   },
   {
-    migrationKey: "linuxPdfCardsV3",
-    url: "./data/linux_cards.json?v=20261011-linux-extra",
+    migrationKey: "linuxPdfCardsV4",
+    url: "./data/linux_cards.json?v=20261016-linux-labs",
   },
 ];
 const TOPIC_PREFIX = "topic:";

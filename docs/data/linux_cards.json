@@ -1082,6 +1082,114 @@
       "back": "Zasada przyznawania minimalnych niezbednych uprawnien.",
       "type": "definition",
       "source": "Untitled document (1).md"
+    },
+    {
+      "front": "Jak skopiowac plik, nadajac mu jednoczesnie nowa nazwe?",
+      "back": "Uzyj cp stara_nazwa /sciezka/nowa_nazwa.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Jak skopiowac kilka plikow do jednego katalogu?",
+      "back": "Podaj pliki kolejno, a katalog docelowy jako ostatni argument, np. cp plik1 plik2 plik3 katalog/.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co zwykle oznacza blad cp: cannot stat?",
+      "back": "Nie mozna odczytac informacji o zrodle. Powodem jest czesto bledna sciezka lub nazwa albo brak dostepu.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co oznacza | wewnatrz wzorca grep -E?",
+      "back": "Alternatywe, czyli LUB, w wyrazeniu regularnym.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Jak wyodrebnic fragmenty wygladajace jak ip=203.0.113.10?",
+      "back": "Uzyj grep -oE \"ip=[0-9.]+\" plik. To prosty wzorzec i nie waliduje poprawnosci adresu IP.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Dlaczego zwykle stosuje sie sort przed uniq?",
+      "back": "uniq porownuje tylko sasiadujace linie, a sort ustawia identyczne linie obok siebie.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Jak policzyc wystapienia kazdej unikalnej linii?",
+      "back": "Uzyj sort plik | uniq -c.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co robi uniq -c?",
+      "back": "Poprzedza kazda grupe identycznych sasiadujacych linii liczba wystapien.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co robi sort -nr?",
+      "back": "Sortuje liczbowo (-n) i w odwrotnej, malejacej kolejnosci (-r).",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Jak posortowac ranking liczebnosci od najwiekszej?",
+      "back": "Uzyj sort plik | uniq -c | sort -nr.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Dlaczego netstat moze nie dzialac na nowym Linuksie?",
+      "back": "Moze nie byc zainstalowany. Wspolczesna alternatywa jest polecenie ss.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Jaka jest typowa sygnatura hex pliku ZIP?",
+      "back": "50 4B 03 04. To jeden z typowych wariantow naglowka ZIP.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Do czego sluzy porownywanie SHA-256 oryginalu i kopii?",
+      "back": "Do sprawdzania integralnosci. Identyczne skroty bardzo silnie wskazuja na identyczna zawartosc.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co robi awk '{print $NF}'?",
+      "back": "Wyswietla ostatnie pole kazdej linii. NF oznacza liczbe pol.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Dlaczego /etc/shadow jest wrazliwy?",
+      "back": "Wykradzione hashe mozna poddawac probom lamania offline, dlatego dostep do pliku powinien byc ograniczony.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Czy pole From w e-mailu dowodzi tozsamosci nadawcy?",
+      "back": "Nie. Wartosc pola From mozna sfalszowac.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Co opisuja naglowki Received w e-mailu?",
+      "back": "Etapy przekazywania wiadomosci miedzy serwerami. Wiarygodnosc wpisu zalezy od zrodla, ktore go dodalo.",
+      "type": "definition",
+      "source": "anki_linux_laby_1-14.csv"
+    },
+    {
+      "front": "Czy X-Originating-IP jednoznacznie identyfikuje nadawce?",
+      "back": "Nie. Naglowek moze byc nieobecny lub sfalszowany i sam nie identyfikuje osoby.",
+      "type": "understanding",
+      "source": "anki_linux_laby_1-14.csv"
     }
   ]
 }
